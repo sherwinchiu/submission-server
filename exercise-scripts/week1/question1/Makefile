@@ -7,12 +7,12 @@ CLFAGS = -g -std=c++11
 NUM = 0
 export NUM
 
-TARGET = answer.cpp
+TARGET = answer$(NUM).cpp
 
-REMOVE = answer.cpp main.exe
+REMOVE = answer$(NUM).cpp main$(NUM).exe
 
 all: $(TARGET) 
-	@$(CC) $(TARGET) $(CFLAGS) -o main
+	@$(CC) $(TARGET) $(CFLAGS) -o main$(NUM)
 
 clean:
 	@$(RM) $(REMOVE)

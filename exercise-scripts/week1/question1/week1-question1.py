@@ -16,24 +16,24 @@ def initialize():
 
     # Compile input file
     try:
-        subprocess.run("ren *.cpp answer.cpp".split(), shell=True)
-        error_message = subprocess.run("make", stderr=subprocess.PIPE).stderr.decode("utf-8").split('make:')[0]
+        subprocess.run(("ren *.cpp answer"+sys.argv[1]+".cpp").split(), shell=True)
+        error_message = subprocess.run("make all NUM="+sys.argv[1], stderr=subprocess.PIPE).stderr.decode("utf-8").split('make:')[0]
         if(re.search(r"error:", error_message)):
-            print("There was in error in your code! Your error: ")
+            print("Found an error while trying to compile your code! Your error: ")
             print(error_message)
             print("Try fixing this error and resubmitting!")
             sys.exit(1)
     except Exception as e:
         print(e)
     
-def run_program():
-    out = subprocess.Popen("./main.exe", stdout=subprocess.PIPE)
+def run_program(program_name):
+    out = subprocess.Popen(program_name, stdout=subprocess.PIPE)
     try:
         out.communicate(timeout=2)
     except:
         out.kill()
         print("Timeout")
-        subprocess.call('make clean')
+        subprocess.call('make clean NUM='+sys.argv[1])
         sys.exit(1)
     out = out.communicate()[0].decode("utf-8") 
     return out
@@ -72,13 +72,13 @@ def test6(text):
 
 initialize()
 
-# Test
-output_text = run_program()
+ # Test
+output_text = run_program("./main"+sys.argv[1]+".exe")
 # Delete input file
-subprocess.call("make clean")
+subprocess.call("make clean NUM="+sys.argv[1])
 
+# Output results
 test_outcome = [test1(output_text), test2(output_text), test3(output_text), test4(output_text), test5(output_text), test6(output_text)]
-
 print_results(test_outcome)
 
 sys.exit(0)
