@@ -5,3 +5,10 @@ This is a submission server used for learning beginner programming in C++. There
 ## Starting the Server 
 
 The server can be started simply by double clicking the bat. 
+
+## Dependences
+
+- Node.js
+- Socket.io
+- Markdoc
+- Express
