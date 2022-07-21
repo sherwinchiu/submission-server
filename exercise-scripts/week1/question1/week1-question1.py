@@ -28,9 +28,23 @@ def initialize():
     
 def run_program():
     out = subprocess.Popen("./main.exe", stdout=subprocess.PIPE)
+    try:
+        out.communicate(timeout=2)
+    except:
+        out.kill()
+        print("Timeout")
+        subprocess.call('make clean')
+        sys.exit(1)
     out = out.communicate()[0].decode("utf-8") 
     return out
 
+def print_results(test_outcome):
+    test_num = len(test_outcome)
+    for i in range(test_num):
+        if(test_outcome[i]):
+            print("Pass")
+        else:
+            print("Fail")
 # Custom Tests
 # Check for Hello World! text
 def test1(text):
@@ -60,17 +74,11 @@ initialize()
 
 # Test
 output_text = run_program()
+# Delete input file
+subprocess.call("make clean")
 
 test_outcome = [test1(output_text), test2(output_text), test3(output_text), test4(output_text), test5(output_text), test6(output_text)]
-test_num = len(test_outcome)
 
-for i in range(test_num):
-    if(test_outcome[i]):
-        print("Test "+str(i+1)+": Pass")
-    else:
-        print("Test "+str(i+1)+": Fail")
+print_results(test_outcome)
 
-
-# Delete input file
-subprocess.call('make clean')
 sys.exit(0)
