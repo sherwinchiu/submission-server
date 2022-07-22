@@ -9,42 +9,10 @@ import subprocess
 import re
 import os, sys
 
-def initialize():
-    # Change directory to working directory
-    current_directory = os.path.dirname(os.path.realpath(__file__))
-    os.chdir(current_directory)
+sys.path.append(os.path.join(os.path.dirname(__file__),'../../'))
 
-    # Compile input file
-    try:
-        subprocess.run(("ren *.cpp answer"+sys.argv[1]+".cpp").split(), shell=True)
-        error_message = subprocess.run("make all NUM="+sys.argv[1], stderr=subprocess.PIPE).stderr.decode("utf-8").split('make:')[0]
-        if(re.search(r"error:", error_message)):
-            print("Found an error while trying to compile your code! Your error: ")
-            print(error_message)
-            print("Try fixing this error and resubmitting!")
-            sys.exit(1)
-    except Exception as e:
-        print(e)
-    
-def run_program(program_name):
-    out = subprocess.Popen(program_name, stdout=subprocess.PIPE)
-    try:
-        out.communicate(timeout=2)
-    except:
-        out.kill()
-        print("Timeout")
-        subprocess.call('make clean NUM='+sys.argv[1])
-        sys.exit(1)
-    out = out.communicate()[0].decode("utf-8") 
-    return out
+import driver
 
-def print_results(test_outcome):
-    test_num = len(test_outcome)
-    for i in range(test_num):
-        if(test_outcome[i]):
-            print("Pass")
-        else:
-            print("Fail")
 # Custom Tests
 # Check for Hello World! text
 def test1(text):
@@ -70,15 +38,20 @@ def test5(text):
 def test6(text):
     return bool(re.search(r"\AHello World!\Z", text))
 
-initialize()
+driver.set_directory(os.path.realpath(__file__))
+driver.compile(sys.argv[1])
+try:
+    # Test
+    output_text = driver.run_program("./main"+sys.argv[1]+".exe",sys.argv[1])
+except:
+    sys.exit(1)
 
- # Test
-output_text = run_program("./main"+sys.argv[1]+".exe")
 # Delete input file
 subprocess.call("make clean NUM="+sys.argv[1])
 
 # Output results
 test_outcome = [test1(output_text), test2(output_text), test3(output_text), test4(output_text), test5(output_text), test6(output_text)]
-print_results(test_outcome)
+
+driver.print_results(test_outcome, sys.argv[1])
 
 sys.exit(0)

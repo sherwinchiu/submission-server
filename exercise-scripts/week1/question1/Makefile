@@ -11,7 +11,7 @@ TARGET = answer$(NUM).cpp
 
 REMOVE = answer$(NUM).cpp main$(NUM).exe
 
-all: $(TARGET) 
+compile: $(TARGET) 
 	@$(CC) $(TARGET) $(CFLAGS) -o main$(NUM)
 
 clean:
