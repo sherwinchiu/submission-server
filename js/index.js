@@ -7,11 +7,13 @@ const io = new Server(server);
 const path = require("path");
 const fs = require("fs");
 const spawn = require("child_process").spawn;
+const md = require("markdown-it")().use(require('markdown-it-container'), "code");
 
 var port = 5500;
 var submission_number = 1;
 var directory = "../exercise-scripts/week1/question1/answer" + submission_number + ".cpp";
 var python_file = "week1-question1.py";
+var question = "./exercise-scripts/week1/question1/tests.md";
 
 server.listen(port, function () {
     console.log("Server started on port 5500");
@@ -20,7 +22,13 @@ app.use(express.static(path.join(__dirname, "../")));
 app.use(express.static(__dirname));
 // Send HTML
 app.get("/", function (req, res) {
-    res.sendFile(path.join(__dirname, "../index.html"));
+    try {
+        let index = fs.readFileSync("./templates/index.html", "utf-8");
+        let markdown = fs.readFileSync(question, "utf-8");
+        res.send(index.replace("{{ MD_CONTENT }}", md.render(markdown)));
+    } catch (err) {
+        console.error(err);
+    }
 });
 
 io.on("connection", (socket) => {
