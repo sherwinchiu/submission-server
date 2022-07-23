@@ -12,9 +12,10 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.1",
+    "highlight.js": "^11.6.0",
     "jquery": "^3.6.0",
     "markdown-it": "^13.0.1",
-    "markdown-it-container": "^3.0.0",
+    "markdown-it-highlightjs": "^4.0.1",
     "socket.io": "^4.5.1"
   }
 }

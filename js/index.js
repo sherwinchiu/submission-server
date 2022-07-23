@@ -7,7 +7,8 @@ const io = new Server(server);
 const path = require("path");
 const fs = require("fs");
 const spawn = require("child_process").spawn;
-const md = require("markdown-it")().use(require('markdown-it-container'), "code");
+const md = require("markdown-it")()
+    .use(require('markdown-it-highlightjs'), {});
 
 var port = 5500;
 var submission_number = 1;
