@@ -41,7 +41,7 @@ def run_input_program(program_name, file_num, inputs):
     out = subprocess.Popen(program_name, stdout=subprocess.PIPE, stdin=subprocess.PIPE)
     try:
         new_out = out.communicate(input=inputs.encode(), timeout=2)[0].decode("utf-8")
-        new_out = re.findall('[0-9]+', new_out)[0]
+        new_out = re.findall(r"-?[0-9]+\.?[0-9]*", new_out)[0]
         print(time.perf_counter()-init_time)
     except:
         out.kill()
