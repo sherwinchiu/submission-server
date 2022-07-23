@@ -4,7 +4,8 @@ This is a submission server used for learning beginner programming in C++. There
 
 ## Starting the Server 
 
-The server can be started simply by double clicking the bat. 
+First run `npm install` to install all dependencies.  
+The server can be started simply by double clicking the bat or by running `npm start`. 
 
 ## Dependences
 
