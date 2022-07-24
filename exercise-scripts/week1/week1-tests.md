@@ -42,19 +42,19 @@ The sum is (sum)
 
 User will be introduced to floats and doubles and how to use them. User will create 3 floats and add all three of them, and print out the output.
 
-# Question 6
+## Question 6
 
 ### User Input
 
 User will ask for 2 user inputs, and then the program will multiply both the inputs together. Print out the output.
 
-# Question 7
+## Question 7
 
 ### Assignment
 
 User will ask for 2 user inputs, and get the sum of both inputs. Then ask for another 2 user inputs, and using the same variables multiply the inputs. Then ask for another 2 user inputs, then divide both of them. Only use 2 variables
 
-# Question 8
+## Question 8
 
 ### Characters
 
@@ -63,7 +63,7 @@ Ask the user for a character to choose from multiple choice (A - Z).
 What answer do you want to choose? A
 You chose: A
 
-# Question 9
+## Question 9
 
 ### Strings
 
@@ -75,7 +75,7 @@ My name is Sherwin
 I want to learn programming because it is fun
 My favorite color is Blue
 
-# Question 10
+## Question 10
 
 ### Change Calculator
 
