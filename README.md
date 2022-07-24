@@ -11,5 +11,7 @@ The server can be started simply by double clicking the bat or by running `npm s
 
 - Node.js
 - Socket.io
-- Markdoc
+- Markdown-it
 - Express
+
+See [`package.json`](./package.json)'s dependencies for more details.
