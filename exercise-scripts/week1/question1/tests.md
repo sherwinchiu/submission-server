@@ -21,7 +21,3 @@ Checks if there is int main(){
 ### Test 6
 
 Checks if there is return 0;
-
-### Test 7
-
-Checks if there is std::cout << or cout << that exists
