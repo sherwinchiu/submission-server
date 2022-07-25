@@ -12,7 +12,7 @@ Checks if "My favorite color is" is printed
 
 ### Test 4
 
-Checks if there are endl's present.
+Checks if there are endl's present
 
 ### Test 5
 

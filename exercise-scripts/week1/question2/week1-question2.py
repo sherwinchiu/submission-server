@@ -24,7 +24,7 @@ def test3(text):
     return bool(re.search(r"My\s+favorite\s+color\s+is\s+\w+", text))
 
 def test4(text):
-    return bool(re.search(r"endl\s*;", text) or re.search(r"\n", text) )
+    return bool(re.search(r"endl\s*;", text))
 
 def test5(text):
     return bool(re.search(r"int\s*main\s*\(\s*\)\s*{", text))

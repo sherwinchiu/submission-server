@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 
 # week1-question7.py
-# Cashier, Advancewd
-# Week 1, Question 3
+# Cashier, Advanced
+# Week 1, Question 7
 
 import subprocess
 import re

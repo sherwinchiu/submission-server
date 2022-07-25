@@ -3,7 +3,7 @@
 
 # week1-question6.py
 # Using escape characters
-# Week 1, Question 3
+# Week 1, Question 6
 
 import subprocess
 import re

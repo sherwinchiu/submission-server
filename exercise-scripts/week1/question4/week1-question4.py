@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# week1-question3.py
-# Using escape characters
-# Week 1, Question 3
+# week1-question4.py
+# Variables and Basic Arithmetic
+# Week 1, Question 4
 
 import subprocess
 import re
