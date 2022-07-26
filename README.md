@@ -13,5 +13,6 @@ The server can be started simply by double clicking the bat or by running `npm s
 - Socket.io
 - Markdown-it
 - Express
+- Makefile
 
-See [`package.json`](./package.json)'s dependencies for more details.
+See [`package.json`](./package.json)'s dependencies for more details on JavaScript dependencies and [`requirements.txt`](./requirements.txt) for details on Python dependencies.
