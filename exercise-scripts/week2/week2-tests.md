@@ -35,8 +35,6 @@ What operation do you want to do? *
 The output is 15
 ```
 
-User will use std::endl.
-
 ## Question 3
 
 ### Grade Scheme
@@ -88,7 +86,7 @@ That is a lowercase letter.
 
 ## Question 5
 
-## Using Remainder
+### Divisibility
 
 User will ask for two numbers, and using the remainder operator, figure out if the first number is divisible by the second. Print out the corresponding text.
 
@@ -100,4 +98,74 @@ What is the second number? 2
 What is the first number? 33
 What is the second number? 11
 33 is divisible by 11.
+```
+
+## Question 6
+
+### Number Guesser
+
+User will import **cstdlib** to generate a random number from 1 to 100. A guessing game will occur where the user will guess a number, and the program will tell them if the number is higher or lower. This will continue until the correct number is guessed
+
+```
+What number do you guess? 50
+The number is higher.
+What number do you guess? 75.
+The number is lower.
+What number do you guess? 62
+The number is higher.
+What number do you guess? 65
+That is the correct number!
+```
+
+## Question 7
+
+### Factorial
+
+User will input a number and calculate the factorial of the number. The factorial is simply calculated by multiplying every number from 1 to the number inputted. For example, the factorial of 5 is (1 \* 2 \* 3 \* 4 \* 5) = 120. Try to implement this with both while loops and for loops, and note which one was easier for you.
+
+```
+What number do you want to factorial? 5
+120
+
+What number do you want to factorial? 3
+6
+```
+
+## Question 8
+
+### Reverse a number
+
+User will input an integer that is big. The program will print out the reverse of that number. (Hint: Modulus needed)
+
+```
+What number do you want to reverse? 5123514
+4153215
+```
+
+## Question 9
+
+### Rectangle
+
+User will input an width and height. Draw a rectangle made out of astricks with these parameters. Use while loops or for loops.
+
+```
+What is the width of the rectangle? 5
+What is the height of the rectangle? 4
+
+*****
+*****
+*****
+*****
+```
+
+## Question 10
+
+### Fibonacci Sequence
+
+Fibonacci sequence is a mathematical sequence that goes up by adding a number previous to the number you are on. For example, a Fibonacci sequence of 7 numbers is (1, 1, 2, 3, 5, 8, 13). 1 + 1 = 2, 2 + 3 = 5, 5 + 8 = 13, and so on. User will ask for how many numbers you want the sequence to go up to, and will be printed accordingly. Have the sequence of numbers only be seperated by spaces.
+
+```
+How many numbers of the sequence do you want to print? 10
+1 1 2 3 5 8 13 21 34 55
+
 ```
