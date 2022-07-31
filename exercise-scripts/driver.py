@@ -51,7 +51,7 @@ def add_header_guards(file_num):
     file.close()
     return file_text
 
-def check_includes(file_text):
+def check_includes(file_text, do_not_include):
     text = file_text.split("\n")
     include_text = []
     result = True
@@ -59,8 +59,9 @@ def check_includes(file_text):
         if(re.match(r"#include", text[i])):
             include_text.append(text[i])
     for i in range(len(include_text)):
-        if(not re.match(r"#include\s+<\s*iostream\s*>", text[i])):
-            result = False
+        for j in range(len(do_not_include)):
+            if(re.match(r"#include\s+<\s*"+do_not_include[j]+r"\s*>", include_text[i])):
+                result = False
     return result
 
 def run_program(program_name, file_num):
