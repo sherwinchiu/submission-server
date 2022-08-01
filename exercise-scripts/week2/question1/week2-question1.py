@@ -24,29 +24,29 @@ def test2():
     return re.search(r"3\s*is\s*equal\s*to\s*3", test2_text, re.I)  
 def test3():
     test2_text = driver.run_input_program("./main"+sys.argv[1]+".exe",sys.argv[1], "15 1")
-    return re.search(r"15\s*is\s*less\s*than\s*1", test2_text, re.I)
+    return re.search(r"15\s*is\s*greater\s*than\s*1", test2_text, re.I)
 
 def test4():
-    rand1 = random.randint(0, 100)
-    rand2 = random.randint(0, 100)
+    rand1 = random.randint(-100, 100)
+    rand2 = random.randint(-100, 100)
     test4_text = driver.run_input_program("./main"+sys.argv[1]+".exe",sys.argv[1], (str(rand1) + " " + str(rand2)))
     if(rand1 < rand2):
-        return re.search(str(rand1) + "\s*is\s*less\s*than\s*" + str(rand2), test4_text, re.I)
+        return re.search(str(rand1) + r"\s*is\s*less\s*than\s*" + str(rand2), test4_text, re.I)
     elif(rand1 == rand2):
-        return re.search(str(rand1) + "\s*is\s*equal\s*to\s*" + str(rand2), test4_text, re.I)
+        return re.search(str(rand1) + r"\s*is\s*equal\s*to\s*" + str(rand2), test4_text, re.I)
     else:
-         return re.search(str(rand1) + "\s*is\s*less\s*than\s*" + str(rand2), test4_text, re.I)
+         return re.search(str(rand1) + r"\s*is\s*greater\s*than\s*" + str(rand2), test4_text, re.I)
 
 def test5():
-    rand1 = random.randint(0, 1000)
-    rand2 = random.randint(0, 1000)
+    rand1 = random.randint(-1000, 1000)
+    rand2 = random.randint(-1000, 1000)
     test5_text = driver.run_input_program("./main"+sys.argv[1]+".exe",sys.argv[1], (str(rand1) + " " + str(rand2)))
     if(rand1 < rand2):
         return re.search(str(rand1) + "\s*is\s*less\s*than\s*" + str(rand2), test5_text, re.I)
     elif(rand1 == rand2):
         return re.search(str(rand1) + "\s*is\s*equal\s*to\s*" + str(rand2), test5_text, re.I)
     else:
-        return re.search(str(rand1) + "\s*is\s*less\s*than\s*" + str(rand2), test5_text, re.I)
+        return re.search(str(rand1) + "\s*is\s*greater\s*than\s*" + str(rand2), test5_text, re.I)
 
 driver.set_directory(os.path.realpath(__file__))
 driver.compile(sys.argv[1])

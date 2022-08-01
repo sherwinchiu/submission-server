@@ -46,8 +46,8 @@ def test5(lower, upper):
         answer = rand1 * rand2
     else:
         answer = rand1 / rand2
-
-    return re.search(str(answer), test5_text, re.I)
+    num = re.findall(r"-?[0-9]+\.?[0-9]*", test5_text)[0]
+    return abs(float(num)) > abs(answer*0.99) and abs(float(num)) < abs(answer*1.01)
 
 driver.set_directory(os.path.realpath(__file__))
 driver.compile(sys.argv[1])

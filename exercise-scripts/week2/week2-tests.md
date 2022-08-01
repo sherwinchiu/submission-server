@@ -39,7 +39,7 @@ The output is 15
 
 ### Grade Scheme
 
-User will ask for what percent grade you got, and translate it to a letter grade and print out the corresponding text.
+User will ask for what percent grade you got, and translate it to a letter grade and print out the corresponding text. Use else-if statements. Follow the text exactly.
 
 A: 80 - 100
 B: 70 - 79
@@ -55,20 +55,20 @@ What was your grade? 70
 Good job on getting a B!
 
 What was your grade? 68
-You got a C, work a bit harder!
+You got a C!
 
 What was your grade? 58
 You got a D.
 
 What was your grade? 34
-Unfortunately, you got a F. Try again, you can do it!
+Unfortunately, you got a F.
 ```
 
 ## Question 4
 
 ### Working with ASCII
 
-User will ask for a character. Then, output if the character is a number, a special character, a lowercase letter or uppercase letter. You will have to use an ASCII table for this! You can worry about the decimal range of the ASCII table from 33 to 126, inclusive (meaning include 33 and 126).
+User will ask for a character. Then, output if the character is a number, a special character, a lowercase letter or uppercase letter. You will have to use an ASCII table for this! You can worry about the decimal range of the ASCII table from 33 to 126, inclusive (meaning include 33 and 126). Use else-if statements.
 
 ```
 What is your character? ?
@@ -88,7 +88,7 @@ That is a lowercase letter.
 
 ### Divisibility
 
-User will ask for two numbers, and using the remainder operator, figure out if the first number is divisible by the second. Print out the corresponding text.
+User will ask for two numbers, and using the remainder operator, figure out if the first number is divisible by the second. Print out the corresponding text, and use else-if statements.
 
 ```
 What is the first number? 5

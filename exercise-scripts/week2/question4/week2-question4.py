@@ -34,7 +34,7 @@ def test4():
 def test5():
     result = True
     for i in range(33, 126):
-        test5_text = driver.run_input_program("./main"+sys.argv[1]+".exe",sys.argv[1], str(i))
+        test5_text = driver.run_input_program("./main"+sys.argv[1]+".exe",sys.argv[1], chr(i))
         if(i >= 48 and i <= 57):
             if (not re.search(r"number", test5_text, re.I)):
                 result = False
