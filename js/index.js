@@ -7,8 +7,7 @@ const io = new Server(server);
 const path = require("path");
 const fs = require("fs");
 const spawn = require("child_process").spawn;
-const md = require("markdown-it")()
-    .use(require('markdown-it-highlightjs'), {});
+const md = require("markdown-it")().use(require("markdown-it-highlightjs"), {});
 
 var port = 5500;
 var submission_number = 1;
@@ -23,8 +22,8 @@ var question_paths = [
     "./exercise-scripts/week1/question5/tests.md",
     "./exercise-scripts/week1/question6/tests.md",
     "./exercise-scripts/week1/question7/tests.md",
-    "./exercise-scripts/week1/question8/tests.md"
-]
+    "./exercise-scripts/week1/question8/tests.md",
+];
 
 server.listen(port, function () {
     console.log("Server started on port 5500");
@@ -37,7 +36,7 @@ app.get("/", function (req, res) {
         let index = fs.readFileSync("./templates/index.html", "utf-8");
         let markdown = fs.readFileSync(question, "utf-8");
         let question_content = [];
-        for (let i = 0;i < question_paths.length;i++) {
+        for (let i = 0; i < question_paths.length; i++) {
             question_content.push(md.render(fs.readFileSync(question_paths[i], "utf-8")));
         }
         res.send(index.replace("{{ MD_CONTENT }}", md.render(markdown)).replace("{{ QUESTION_CONTENT }}", JSON.stringify(question_content)));
