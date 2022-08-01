@@ -28,21 +28,24 @@ def test3(text):
 
 def test4():
     test4_text = driver.run_input_program("./main"+sys.argv[1]+".exe",sys.argv[1], "5 10")
-    return int(test4_text) == 15
+    num = re.findall(r"-?[0-9]+\.?[0-9]*", test4_text)[0]
+    return int(num) == 15
 
 def test5():
     rand1 = random.randint(-100, 100)
     rand2 = random.randint(-100, 100)
     test5_sum = rand1 + rand2
     test5_text = driver.run_input_program("./main"+sys.argv[1]+".exe",sys.argv[1], str(rand1) + " " + str(rand2))
-    return int(test5_text) == test5_sum
+    num = re.findall(r"-?[0-9]+\.?[0-9]*", test5_text)[0]
+    return int(num) == test5_sum
 
 def test6():
     rand1 = random.randint(-10000, 10000)
     rand2 = random.randint(-10000, 10000)
     test6_sum = rand1 + rand2
     test6_text = driver.run_input_program("./main"+sys.argv[1]+".exe",sys.argv[1], str(rand1) + " " + str(rand2))
-    return int(test6_text) == test6_sum
+    num = re.findall(r"-?[0-9]+\.?[0-9]*", test6_text)[0]
+    return int(num) == test6_sum
 
 driver.set_directory(os.path.realpath(__file__))
 driver.compile(sys.argv[1])

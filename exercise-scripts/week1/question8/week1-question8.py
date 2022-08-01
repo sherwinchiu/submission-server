@@ -17,14 +17,17 @@ import driver
 # Custom Tests
 def test1():
     test1_text = driver.run_input_program("./main"+sys.argv[1]+".exe",sys.argv[1], "1 1 1 1 1")
-    return float(test1_text) == 3.4
+    num = re.findall(r"-?[0-9]+\.?[0-9]*", test1_text)[0]
+    return float(num) == 3.4
 
 def test2():
     test2_text = driver.run_input_program("./main"+sys.argv[1]+".exe",sys.argv[1], "2 2 2 2 2")
-    return float(test2_text) == 6.8   
+    num = re.findall(r"-?[0-9]+\.?[0-9]*", test2_text)[0]
+    return float(num) == 6.8   
 def test3():
-    test2_text = driver.run_input_program("./main"+sys.argv[1]+".exe",sys.argv[1], "3 2 5 3 1")
-    return float(test2_text) == 6.6
+    test3_text = driver.run_input_program("./main"+sys.argv[1]+".exe",sys.argv[1], "3 2 5 3 1")
+    num = re.findall(r"-?[0-9]+\.?[0-9]*", test3_text)[0]
+    return float(num) == 6.6
 
 def test4():
     rand1 = random.randint(0, 100)
@@ -34,7 +37,8 @@ def test4():
     rand5 = random.randint(0, 100)
     test4_result = abs(rand1*0.05 + rand2*0.1 + rand3*0.25 + rand4 + rand5*2)
     test4_text = driver.run_input_program("./main"+sys.argv[1]+".exe",sys.argv[1], (str(rand1) + " " + str(rand2) + " " + str(rand3) + " " + str(rand4) + " " + str(rand5)))
-    return abs(float(test4_text)) > test4_result*0.99 and abs(float(test4_text)) < test4_result*1.01
+    num = re.findall(r"-?[0-9]+\.?[0-9]*", test4_text)[0]
+    return abs(float(num)) > test4_result*0.99 and abs(float(num)) < test4_result*1.01
 
 def test5():
     rand1 = random.randint(0, 1000)
@@ -44,17 +48,20 @@ def test5():
     rand5 = random.randint(0, 1000)
     test5_result = abs(rand1*0.05 + rand2*0.1 + rand3*0.25 + rand4 + rand5*2)
     test5_text = driver.run_input_program("./main"+sys.argv[1]+".exe",sys.argv[1], (str(rand1) + " " + str(rand2) + " " + str(rand3) + " " + str(rand4) + " " + str(rand5)))
-    return abs(float(test5_text)) > test5_result*0.99 and abs(float(test5_text)) < test5_result*1.01
+    num = re.findall(r"-?[0-9]+\.?[0-9]*", test5_text)[0]
+    return abs(float(num)) > test5_result*0.99 and abs(float(num)) < test5_result*1.01
 
 driver.set_directory(os.path.realpath(__file__))
 driver.compile(sys.argv[1])
 try:
     file_text = open("answer"+sys.argv[1]+".cpp", "r").read()    
+    test_outcome = [test1(), test2(), test3(), test4(), test5()]
 except:
+    subprocess.call("make clean NUM="+sys.argv[1])
     sys.exit(1)
 # Output results
 
-test_outcome = [test1(), test2(), test3(), test4(), test5()]
+
 
 # Delete input file
 subprocess.call("make clean NUM="+sys.argv[1])

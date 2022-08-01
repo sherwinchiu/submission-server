@@ -65,11 +65,11 @@ def check_includes(file_text, do_not_include):
     return result
 
 def run_program(program_name, file_num):
-    init_time = time.perf_counter()
+    # init_time = time.perf_counter()
     out = subprocess.Popen(program_name, stdout=subprocess.PIPE)
     try:
         out.communicate(timeout=2)
-        print(time.perf_counter()-init_time)
+        # print(time.perf_counter()-init_time)
     except:
         out.kill()
         print("Timeout")
@@ -79,12 +79,12 @@ def run_program(program_name, file_num):
     return out
 
 def run_input_program(program_name, file_num, inputs):
-    init_time = time.perf_counter()
+    # init_time = time.perf_counter()
     out = subprocess.Popen(program_name, stdout=subprocess.PIPE, stdin=subprocess.PIPE)
     try:
         new_out = out.communicate(input=inputs.encode(), timeout=2)[0].decode("utf-8")
-        new_out = re.findall(r"-?[0-9]+\.?[0-9]*", new_out)[0]
-        print(time.perf_counter()-init_time)
+        # new_out = re.findall(r"-?[0-9]+\.?[0-9]*", new_out)[0] # use this to only get the number
+        # print(time.perf_counter()-init_time)
     except:
         out.kill()
         print("Timeout")

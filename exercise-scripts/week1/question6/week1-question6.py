@@ -28,21 +28,24 @@ def test3(text):
 
 def test4():
     test4_text = driver.run_input_program("./main"+sys.argv[1]+".exe",sys.argv[1], "0.5 5")
-    return float(test4_text) == 2.5
+    num = re.findall(r"-?[0-9]+\.?[0-9]*", test4_text)[0]
+    return float(num) == 2.5
 
 def test5():
     rand1 = random.uniform(0, 5)
     rand2 = random.randint(0, 20)
     test5_result = abs(rand1 * rand2)
     test5_text = driver.run_input_program("./main"+sys.argv[1]+".exe",sys.argv[1], (str(rand1) + " " + str(rand2)))
-    return abs(float(test5_text)) > test5_result*0.95 and abs(float(test5_text)) < test5_result*1.05
+    num = re.findall(r"-?[0-9]+\.?[0-9]*", test5_text)[0]
+    return abs(float(num)) > test5_result*0.95 and abs(float(num)) < test5_result*1.05
 
 def test6():
     rand1 = random.uniform(0, 100)
     rand2 = random.randint(0, 200)
     test6_result = abs(rand1 * rand2)
     test6_text = driver.run_input_program("./main"+sys.argv[1]+".exe",sys.argv[1], (str(rand1) + " " + str(rand2)))
-    return abs(float(test6_text)) > test6_result*0.95 and abs(float(test6_text)) < test6_result*1.05
+    num = re.findall(r"-?[0-9]+\.?[0-9]*", test6_text)[0]
+    return abs(float(num)) > test6_result*0.95 and abs(float(num)) < test6_result*1.05
 
 driver.set_directory(os.path.realpath(__file__))
 driver.compile(sys.argv[1])
