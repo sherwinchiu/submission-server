@@ -1,7 +1,13 @@
 const socket = io();
+const myCodeMirror = CodeMirror($("#code")[0], {
+    value: "#include <iostream>\n\nint main(){\n\t\n\treturn 0;\n}",
+    indentUnit: 4,
+    lineNumbers: true,
+    mode: "text/x-c++src",
+});
 
 // socket.emit("give-page"){
-
+//
 // }
 
 var path = window.location.pathname;

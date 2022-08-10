@@ -5,6 +5,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="../../css/style.css" />
+        <link rel="stylesheet" href="../../css/codemirror.css" />
+
         <title>Examples</title>
     </head>
     <body>
@@ -12,13 +14,15 @@
             <div id="left-div" class="column"></div>
             <div id="v-slide" class="column"></div>
             <div id="right-div" class="column">
-                <div id="code" class="resizable">ah</div>
+                <div id="code" class="resizable"></div>
                 <div id="h-slide" class="resizable">---</div>
                 <div id="console" class="resizable">ah</div>
             </div>
         </div>
         <script src="/socket.io/socket.io.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="../../js/codemirror.js"></script>
+        <script src="../../js/clike.js"></script>
         <script src="../../js/text-renderer.js"></script>
     </body>
 </html>
