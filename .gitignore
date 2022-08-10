@@ -2,4 +2,3 @@
 */__pycache__
 .vscode
 *.exe
-/exercise-scripts/week*/question*/*.cpp
