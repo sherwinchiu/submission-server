@@ -18,3 +18,61 @@ a {
     display: inline-block;
     font-size: 16px;
 }
+
+.resizable {
+    overflow: auto; /* something other than visible */
+}
+
+.column {
+    width: 49%;
+    float: left;
+    overflow: hidden;
+}
+.row {
+    content: "";
+    /* display: table; */
+    clear: both;
+}
+#h-slide {
+    text-align: center;
+    letter-spacing: 10px;
+    height: 1.5vh;
+    background-color: rgb(233, 233, 233);
+    cursor: row-resize;
+    user-select: none;
+    font-size: 15px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+#v-slide {
+    overflow: hidden;
+    text-align: center;
+    letter-spacing: 10px;
+    width: 0.5%;
+    background-color: rgb(233, 233, 233);
+    cursor: col-resize;
+    user-select: none;
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+#right-div {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+#code {
+    height: 80vh;
+    overflow: hidden;
+    min-height: 10vh;
+}
+#console {
+    flex: 1;
+    height: 20vh;
+    overflow: hidden;
+    min-height: 10vh;
+}

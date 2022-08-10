@@ -4,9 +4,8 @@ Print out **"Hello World!"** into console using the basic template for C++ and s
 
 ### Example
 
-Expected Output:
-
-```
+```md
+**Expected Output:**
 Hello World!
 ```
 
